@@ -1,0 +1,198 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+
+@mixin mediaQuery($breakpoint) {
+  @if ($breakpoint == tablet) {
+    @media (min-width: ($Mobile * 2.1)) {
+      @content;
+    }
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: $White;
+  @include mediaQuery(tablet) {
+    background-color: $Pale-blue;
+  }
+}
+body {
+  font-size: 18px;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+h2,
+h3,
+p {
+  margin-bottom: 1.5em;
+}
+h2 {
+  font-size: 1.2em;
+}
+h3 {
+  font-size: 1em;
+}
+p {
+  font-size: 0.95em;
+}
+span {
+  color: $Light-lavender;
+  font-size: 0.85em;
+}
+section {
+  display: grid;
+  max-width: $Mobile;
+  margin: 0 auto;
+
+  &.left {
+    color: $White;
+    padding: 1.5em 2em;
+    background: linear-gradient(
+      to right top,
+      $Light-royal-blue-background,
+      $Light-slate-blue-background
+    );
+    text-align: center;
+    border-radius: 0 0 2em 2em;
+    h3 {
+      color: $Light-lavender;
+    }
+    .result {
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto 1.5em;
+      width: 7.3em;
+      height: 7.3em;
+      background: linear-gradient(
+        to bottom,
+        $Violet-blue-circle,
+        $Persian-blue-circle
+      );
+      h1 {
+        font-size: 3em;
+        font-weight: bold;
+      }
+      span {
+        font-size: 0.8em;
+      }
+    }
+    h2 {
+      margin-bottom: 0.5em;
+    }
+    p {
+      color: $Light-lavender;
+      scale: 0.9;
+      margin-bottom: 0.5em;
+    }
+  }
+  &.right {
+    background-color: $White;
+    padding: 1.3em 2em;
+    h3 {
+      margin-bottom: 1.3em;
+    }
+    .cards {
+      display: grid;
+      gap: 0.8em;
+      margin-bottom: 1.5em;
+    }
+    .card {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8em;
+      border-radius: 0.5em;
+      .category {
+        display: flex;
+        align-items: center;
+        gap: 0.7em;
+        img {
+          width: 1.2em;
+        }
+        span {
+          font-weight: bold;
+          &.Reaction {
+            color: $Light-red;
+          }
+          &.Memory {
+            color: $Orangey-yellow;
+          }
+          &.Verbal {
+            color: $Green-teal;
+          }
+          &.Visual {
+            color: $Cobalt-blue;
+          }
+        }
+      }
+      .score {
+        font-weight: bold;
+        .current {
+          color: $Dark-gray-blue;
+          margin-right: 0.3em;
+        }
+      }
+      &.Reaction {
+        background-color: $Light-red-background;
+      }
+      &.Memory {
+        background-color: $Orangey-yellow-background;
+      }
+      &.Verbal {
+        background-color: $Green-teal-background;
+      }
+      &.Visual {
+        background-color: $Cobalt-blue-background;
+      }
+    }
+    button {
+      all: unset;
+      cursor: pointer;
+      padding: 0.8em;
+      text-align: center;
+      color: $White;
+      border-radius: 2em;
+      background-color: $Dark-gray-blue;
+      font-weight: bold;
+      transition: 0.3s ease;
+      &:hover {
+        background-color: $Cobalt-blue;
+      }
+    }
+  }
+}
+
+main {
+  @include mediaQuery(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: calc($Mobile * 2);
+
+    section {
+      margin: 0;
+    }
+    .left {
+      z-index: 9;
+      flex: 0.4;
+      border-radius: 2em;
+
+      .result {
+        width: 10.16em;
+        height: 10.16em;
+      }
+    }
+    .right {
+      flex: 0.4;
+      border-radius: 0 2em 2em 0;
+      margin-left: -2rem;
+      padding-left: 4rem;
+      box-shadow: 0 10px 2em rgba(0, 0, 0, 0.2);
+    }
+  }
+}
