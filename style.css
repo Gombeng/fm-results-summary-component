@@ -8,11 +8,6 @@
 html {
   background-color: hsl(0, 0%, 100%);
 }
-@media (min-width: 787.5px) {
-  html {
-    background-color: hsl(221, 100%, 96%);
-  }
-}
 
 body {
   font-size: 18px;

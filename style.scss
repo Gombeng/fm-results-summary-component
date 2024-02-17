@@ -15,9 +15,6 @@
 }
 html {
   background-color: $White;
-  @include mediaQuery(tablet) {
-    background-color: $Pale-blue;
-  }
 }
 body {
   font-size: 18px;
